@@ -1,0 +1,189 @@
+:root {
+  --sidebar-width: 300px;
+  --sidebar-font-size: 16px;
+  --sidebar-bg-color: #2D3142;
+  --sidebar-pad-topbottom: 50px;
+  --sidebar-pad-rigthleft: 15px;
+  --sidebar-icon-size: 24px;
+  /*default: 24px */
+
+  /* Variable declared to be used in the js compenent defined above */
+  --sidebar-width-minimized: calc(var(--sidebar-icon-size));
+  --main-margin-left: calc(var(--sidebar-width) + 2 * var(--sidebar-pad-rigthleft));
+  --main-margin-left-minimized: calc(var(--sidebar-width-minimized) + 2 * var(--sidebar-pad-rigthleft));
+}
+
+/* STYLE =============================================== */
+
+body {
+  color: white;
+  font-family: 'Raleway', sans-serif
+}
+
+.sidebar a {
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar a,
+#pin,
+.icon-text {
+  color: #eb9671;
+}
+
+.icon-text {
+  font-size: 20px;
+}
+
+.sidebar a:hover,
+.icon-text:hover {
+  color: #f1f1f1;
+}
+
+.filter-orange {
+  filter: brightness(0) saturate(100%) invert(92%) sepia(15%) saturate(6581%) hue-rotate(304deg) brightness(95%) contrast(102%);
+}
+
+.sidebar h1 {
+  font-size: 1.6rem;
+  color: #eb9671;
+}
+
+.sidebar h2 {
+  font-size: 1.4rem;
+  color: #eb9671;
+}
+
+/* SIDEBAR AND MENU - enables sliding in rigths proportions  ==========================*/
+
+/* This is for all the content outside the sidebar.
+  It enables to fit to the different widths when the bqr is minimized or not */
+#main {
+  height: 100%;
+  margin-left: var(--main-margin-left);
+  transition: margin-left 0.5s;
+  padding: 0px 20px;
+}
+
+.sidebar {
+  /* height: 100%; */
+  width: var(--sidebar-width);
+  padding: var(--sidebar-pad-topbottom) var(--sidebar-pad-rigthleft);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: var(--sidebar-bg-color);
+  transition: 0.5s;
+  white-space: nowrap;
+  font-size: var(--sidebar-font-size);
+
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#mySidebar>div {
+  color: #eb9671;
+  font-size: 20px;
+}
+
+#mySidebar p {
+  font-size: 1rem;
+  color: red;
+}
+
+.material-icons,
+.material-icons-outlined,
+.icon-text {
+  vertical-align: middle;
+}
+
+.material-icons,
+.material-icons-outlined {
+  font-size: var(--sidebar-icon-size) !important;
+  padding-bottom: 3px;
+  margin-right: var(--sidebar-pad-rigthleft);
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+
+  .sidebar a {
+    font-size: 18px;
+  }
+}
+
+.flexbox>div {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.flexbox>div:hover {
+  background-color: #dd8c69;
+  color: black;
+}
+
+.selected {
+  background-color: #e37b4e;
+  color: black;
+}
+
+#availableViews .flexbox>div {
+  display: flex;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+#pin {
+  position: absolute;
+  top: 0;
+  margin-top: 5px;
+  padding-bottom: 3px;
+  font-size: 30px;
+}
+
+/*  
+#about {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5px;
+  padding-bottom: 3px;
+  font-size: 30px;
+}*/
+
+#graph-settings {
+  color: white;
+  padding: 10px 20px;
+  margin: 20px;
+  border: dotted;
+  border-color: white;
+  text-align: right;
+  display: none;
+}
+
+#graph-settings-icon {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  margin-top: 5px;
+  padding-bottom: 3px;
+  font-size: 30px;
+}
+
+#calculator {
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
